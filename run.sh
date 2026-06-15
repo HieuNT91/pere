@@ -4,6 +4,7 @@ python3 run_epts.py --ept phase1 --run-id phase1 --num-proc 32 --update-config -
 
 
 # Run phase 2
+python3 run_epts.py --ept phase2 --run-id phase2 --num-proc 32 --update-config --start-seed 0 --end-seed 1
 
 
 # Read results phase 1 -> write csv
