@@ -1,63 +1,31 @@
+# Official implementation of "Cold-start Recommendation by Personalized Embedding Region Elicitation" (UAI'24)
 
-## Experiments:
-- **Baselines**:
-	- **Basics**: Random - Greedy - Pere
-	- **Papers**: maxvol - bandit 
+<a href="https://arxiv.org/abs/2405.14352"><img src="https://img.shields.io/badge/arxiv-2405.14352-red?style=for-the-badge"></a>
+<div align="center">
+  <a href="https://hieunt91.github.io/" target="_blank">Hieu&nbsp;Trung&nbsp;Nguyen</a> &emsp;
+  <a href="https://duykhuongnguyen.github.io/" target="_blank">Duy&nbsp;Nguyen</a> &emsp;
+  <a href="https://vinuni.edu.vn/people/khoa-d-doan-phd/" target="_blank">Khoa&nbsp;Doan</a> &emsp;
+  <a href="https://www.vietanhnguyen.net/" target="_blank">Viet&nbsp;Anh&nbsp;Nguyen</a> &emsp;
+  <br> <br>
+</div>
+<br>
 
-- **LightGCN embedding** (Implicit Interaction):
-	- gowalla - phase 2 - basics 
+<div align="center">
+    <img width="1000" alt="teaser" src="assets/image.png"/>
+</div>
+
+Details of algorithms and experimental results can be found in [our paper](https://arxiv.org/pdf/2406.00973):
+```bibtex
+@inproceedings{nguyen2024coldstart,
+title={Cold-start Recommendation by Personalized Embedding Region Elicitation},
+author={Hieu Trung Nguyen and Duy Nguyen and Khoa D Doan and Viet Anh Nguyen},
+booktitle={The 40th Conference on Uncertainty in Artificial Intelligence},
+year={2024},
+}
 ```
-python3 run_epts.py -e phase2 --datasets gowalla --num-proc 16 --run-id gowalla_basics --start-seed 0 --end-seed 1 --update-config
-```
-
-	- amazon-books - phase 2 - basics 
-```
-python3 run_epts.py -e phase2 --datasets amazon_books --num-proc 16 --run-id amazon_books_basics --start-seed 0 --end-seed 1 --update-config
-```
-
-	- gowalla - paper 
-```
-python3 run_epts.py -e dpe --datasets gowalla --num-proc 16 --run-id gowalla_paper --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e maxvol --datasets gowalla --num-proc 16 --run-id gowalla_paper --start-seed 0 --end-seed 1 --update-config
-```
-
-	- amazon-books - paper
-```
-python3 run_epts.py -e dpe --datasets amazon_books --num-proc 16 --run-id amazon_books_paper --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e maxvol --datasets amazon_books --num-proc 16 --run-id amazon_books_paper --start-seed 0 --end-seed 1 --update-config
-```
-
-- **biVAE embedding** (Explicit Interaction): 8000 seconds on amazon books 5 core
-	- **amazon-books - phase 2 - basics + dpe + maxvol**
-```
-python3 run_epts.py -e phase2 --datasets amazon_books_bivae --num-proc 16 --run-id amazon_books_bivae_basics --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e dpe --datasets amazon_books_bivae --num-proc 16 --run-id amazon_books_bivae_paper --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e maxvol --datasets amazon_books_bivae --num-proc 16 --run-id amazon_books_bivae_paper --start-seed 0 --end-seed 1 --update-config
-```
-
-		- amazon-games - phase 2 - basics + dpe + maxvol
-```
-python3 run_epts.py -e phase2 --datasets amazon_games_bivae --num-proc 16 --run-id amazon_games_bivae_basics --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e dpe --datasets amazon_games_bivae --num-proc 16 --run-id amazon_games_bivae_paper --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e maxvol --datasets amazon_games_bivae --num-proc 16 --run-id amazon_games_bivae_paper --start-seed 0 --end-seed 1 --update-config
-```
-
-- **Ablation Study:** Vary mode (min, max, avg, sum)
-	- amazon-books - phase 2 - basics
-```
-python3 run_epts.py -e vary_mode --datasets amazon_games_bivae --num-proc 16 --run-id amazon_games_bivae_basics --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e vary_mode --datasets amazon_books_bivae --num-proc 16 --run-id amazon_games_bivae_basics --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e vary_mode --datasets gowalla --num-proc 16 --run-id amazon_games_bivae_basics --start-seed 0 --end-seed 1 --update-config
-
-python3 run_epts.py -e vary_mode --datasets amazon_books --num-proc 16 --run-id amazon_games_bivae_basics --start-seed 0 --end-seed 1 --update-config
-```
+Please consider citing this paper if it is helpful for you.
 
 
+## Contact
+
+If you have any problems, please open an issue in this repository or send an email to [hilljun.2000@gmail.com](mailto:hilljun.2000@gmail.com).
