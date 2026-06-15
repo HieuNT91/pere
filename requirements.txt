@@ -1,0 +1,6 @@
+pyyaml
+matplotlib
+plotly
+pandas
+cvxpy
+dppy
